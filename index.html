@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Picture Element Example</title>
+    <style>
+        h2{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        p{
+            font-size: 18px;
+            font-family:Arial, Helvetica, sans-serif;
+            color: rgb(72, 69, 69);
+        }
+        body{
+            padding: 20px;
+        }
+        b{
+            font-size: 18px;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <picture>
+        <!-- Larger image for large screens -->
+        <source media="(min-width: 800px)" srcset="https://fps.cdnpk.net/images/home/subhome-ai.webp?w=649&h=649" type="image/webp">
+        
+        <!-- Smaller image for smaller screens -->
+        <source media="(max-width: 799px)" srcset="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxLlEiWqJ_cDigaTtESRvzjAbh75_-kJ3lGRhcx97Z4rmpJLOjgu5afWP0xHx3xBx95fw&usqp=CAU" type="image/webp">
+    
+        <!-- Fallback image for unsupported formats -->
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvuMYEqVJhlrWLboanQCfYhrcEEewSby04Q7DbkZ_zh4c0GwcwiMi6MJ9hzJurKUR2Fkk&usqp=CAU" alt="Responsive image" loading="lazy">
+    </picture>    
+    <div>
+        <h2>Explanation:</h2>
+        <p>
+        The <source> elements use the media attribute to specify screen width conditions (e.g., (min-width: 800px) serves the larger image).        The srcset attribute provides the file for that condition.
+        The browser will select the first source it can display based on the screen size or supported file format.
+        </p>
+
+        <h2>## How the picture Element Affects Web Vitals
+        </h2>
+        <b>1. Largest Contentful Paint (LCP):</b>
+        <p>Improves loading time by serving smaller, optimized images for mobile devices.
+            Uses modern image formats (like WebPage) to load faster.
+            </p>
+        <b>2. Cumulative Layout Shift (CLS):</b>
+        <p>Prevents layout shifts by using fixed width and height for images.
+        </p>
+        <b>3. First Input Delay (FID):  </b>
+        <p>Reduces browser load by loading optimized images, which helps the page become interactive faster.
+        </p>
+    </div>
+</body>
+</html>
